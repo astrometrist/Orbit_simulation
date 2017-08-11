@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- This is an attempt to enter a time step and a duration and compute
+the number of time steps in the duration.
+Started 7/29/17 by paul hemenway
+       -->
+<html>
+<body>
+
+<h2>Solar System Orrery</h2>
+<h3> Based on two body oscullating elements for 4 December 2015 </h3>
+<h3>	(JD 2457360.5) </h3>
+
+<p>Set the times:</p>
+
+<form action="/action_page_1.php"> Time step in days (between 1 and 30):
+        <input type="number" id="time_step" name="ts1" min="1" max="30">
+            </form>
+
+<form action="/action_page_1.php"> Number of Days: (between 30 and 750):
+        <input type="number" id="num_days" name="nd1" min="30" max="750">
+        </form>
+
+<form>  <input type="radio" onclick="computeTimestep()"
+		name="go_reset" value="go"> GO <br> 
+        
+	</form>
+
+<p> Time Step as read:</p>
+<p id="time_step_read">Time-step as read </p>
+
+<p> Number of days as read:</p>
+<p id="num_days_read">Num Days printed</p>
+
+<p> Computed number of steps:</p>
+<p id='num_steps_display'>Number of Steps Display</p>
+
+
+<script>
+
+var time_step = document.getElementById("time_step");
+var dt = Number(time_step.value);
+
+document.getElementById('time_step_read').innerHTML = dt;
+
+function computeTimestep(){
+	var time_step =  document.getElementById("time_step");
+	var num_days =   document.getElementById("num_days");
+	var dt = Number(time_step.value);
+	var nd = Number(num_days.value);
+        var ns = nd/dt;
+	var num_steps=Math.floor(ns);
+
+	document.getElementById('time_step_read').innerHTML = dt;
+        document.getElementById('num_days_read').innerHTML = nd;
+			   
+	document.getElementById('num_steps_display').innerHTML = num_steps;
+			   }
+
+
+
+</script>
+
+</body>
+</html> 
