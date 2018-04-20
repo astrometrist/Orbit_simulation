@@ -1,0 +1,60 @@
+<html>
+<head>
+     <title>Scoping Test</title>
+   </head>
+   <body>
+
+      <table>
+       <tr><td>a:</td><td><input type="number" id="a_input" name="a1"></td></tr>
+
+       <tr><td>b:</td><td><input type="number" id="b_input" name="b1"></td></tr>
+
+       <tr><td>c:</td><td><input type="number" id="c_input" name="c1"></td></tr>
+      
+       <tr> <td><input type="checkbox" onclick="doItAll()"
+		name="go_reset" value="go"> </td> <td>GO</td>
+
+      </table>
+
+<p>a:</p>
+<p id='a_read'>a goes here</p>
+<p>b:</p>
+<p id='b_read'>b goes here</p>
+      <table>
+        <tr><td>RESULTS:</td></tr>
+        <tr><td>a =</td></tr>
+        <tr><td>b =</td></tr>
+        <tr><td>D = a*b</td><td id="d_result"></td></tr>
+      </table>
+
+   </body>
+
+   <script>
+function doItAll(){
+
+   var a_in=document.getElementById('a_input');
+   var b_in=document.getElementById('b_input');
+   var a = Number(a_in.value);
+   var b = Number(b_in.value);
+   var d;
+   document.getElementById('a_read').innerHTML = a;
+   document.getElementById('b_read').innerHTML = b;
+
+    getD();
+                   
+
+    function getD(){
+
+       d=a*b;
+
+//      document.getElementById('d_result').innerHTML = d;
+
+
+                     }
+                         
+       document.getElementById('d_result').innerHTML = d;
+
+                         }
+
+   </script>
+</html>
